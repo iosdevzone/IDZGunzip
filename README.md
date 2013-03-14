@@ -3,7 +3,10 @@ NSData+IDZGunzip
 
 A category on NSData that provides a simple way to gunzip gzipped data.
 
-Using the category is very straight forward. First make sure you add libz.dylib to your project. Then you do something like this:
+Using the category is very straight forward.
+1. Add libz.dylib to your project. 
+2. Add NSData+IDZGunzip.m and NSData+IDZGunzip.h to your project.
+3. Then you do something like this:
 ```objective-c
 #import "NSData+IDZGunzip.h"
 
