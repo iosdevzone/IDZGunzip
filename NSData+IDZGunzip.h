@@ -23,7 +23,7 @@
 //
 #import <Foundation/Foundation.h>
 
-extern NSString* const IDZZLibErrorDomain;
+extern NSString* const IDZGunzipErrorDomain;
 
 @interface NSData (IDZGunzip)
 

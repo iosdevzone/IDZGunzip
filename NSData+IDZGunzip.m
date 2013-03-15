@@ -24,9 +24,9 @@
 #import "NSData+IDZGunzip.h"
 #import <zlib.h>
 
-NSString* const IDZZLibErrorDomain = @"com.iosdeveloperzone.zlib";
+NSString* const IDZGunzipErrorDomain = @"com.iosdeveloperzone.IDZGunzip";
 
-@implementation NSData (IDZInflate)
+@implementation NSData (IDZGunzip)
 
 - (NSData*)gunzip:(NSError *__autoreleasing *)error
 {
@@ -37,7 +37,7 @@ NSString* const IDZZLibErrorDomain = @"com.iosdeveloperzone.zlib";
     if(self.length < 18)
     {
         if(error)
-            *error = [NSError errorWithDomain:IDZZLibErrorDomain code:Z_DATA_ERROR userInfo:nil];
+            *error = [NSError errorWithDomain:IDZGunzipErrorDomain code:Z_DATA_ERROR userInfo:nil];
         return nil;
     }
     z_stream zStream;
@@ -50,7 +50,7 @@ NSString* const IDZZLibErrorDomain = @"com.iosdeveloperzone.zlib";
     if(iResult != Z_OK)
     {
         if(error)
-            *error = [NSError errorWithDomain:IDZZLibErrorDomain code:iResult userInfo:nil];
+            *error = [NSError errorWithDomain:IDZGunzipErrorDomain code:iResult userInfo:nil];
         return nil;
     }
     /*
@@ -70,7 +70,7 @@ NSString* const IDZZLibErrorDomain = @"com.iosdeveloperzone.zlib";
     if(iResult != Z_STREAM_END)
     {
         if(error)
-            *error = [NSError errorWithDomain:IDZZLibErrorDomain code:iResult userInfo:nil];
+            *error = [NSError errorWithDomain:IDZGunzipErrorDomain code:iResult userInfo:nil];
         gunzippedData = nil;
     }
     inflateEnd(&zStream);
